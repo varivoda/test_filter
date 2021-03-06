@@ -1,4 +1,4 @@
-package com.wrike.qaa;
+package com.wrike.qaa.adaptor;
 
 /**
  * Created by Ivan Varivoda 06/03/2021

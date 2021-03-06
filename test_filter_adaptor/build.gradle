@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+}
+
+group 'com.varivoda'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'io.qameta.allure', name: 'allure-java-commons', version: '2.13.8'
+
+}
