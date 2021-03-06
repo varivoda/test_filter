@@ -27,7 +27,11 @@ public class TestFilterExecutionCondition implements ExecutionCondition {
 
         Optional<Method> method = context.getTestMethod();
 
-        // TODO: 06/03/2021 epic и прочее вынести в константу
+        if (!context.getTestMethod().isPresent()) {
+            return ConditionEvaluationResult.enabled("");
+        }
+
+                // TODO: 06/03/2021 epic и прочее вынести в константу
         Map<String, String> epicMap = AllureAnnotationHelper.getEpicAnnotationValues(method.get()).stream().collect(Collectors.toMap(o -> "epic", o -> o));
         Map<String, String> featureMap = AllureAnnotationHelper.getFeatureAnnotationValues(method.get()).stream().collect(Collectors.toMap(o -> "feature", o -> o));
         Map<String, String> storyMap = AllureAnnotationHelper.getStoryAnnotationValues(method.get()).stream().collect(Collectors.toMap(o -> "story", o -> o));

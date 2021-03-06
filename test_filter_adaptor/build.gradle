@@ -11,5 +11,4 @@ repositories {
 
 dependencies {
     implementation group: 'io.qameta.allure', name: 'allure-java-commons', version: '2.13.8'
-
 }

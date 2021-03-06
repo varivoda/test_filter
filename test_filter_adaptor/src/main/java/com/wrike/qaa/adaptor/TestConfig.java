@@ -6,9 +6,7 @@ package com.wrike.qaa.adaptor;
 // TODO: 06/03/2021 Тут через интерфейс зайти, чтобы тесты легко писать
 public class TestConfig {
 
-    private String filter;
-
     public String getTestFilter() {
-        return "{epic:Login}|{story:notification}";
+        return System.getProperty("test.filter");
     }
 }
