@@ -3,6 +3,7 @@ package com.wrike.qaa;
 import org.apache.commons.jexl3.JexlBuilder;
 import org.apache.commons.jexl3.JexlContext;
 import org.apache.commons.jexl3.JexlEngine;
+import org.apache.commons.jexl3.JexlException;
 import org.apache.commons.jexl3.JexlExpression;
 import org.apache.commons.jexl3.MapContext;
 
@@ -17,7 +18,13 @@ public class BoolExpressionExecutor {
 
     public boolean eval(String expression) throws TestFilterEvaluationException {
         JexlExpression jexlExpression = jexlEngine.createExpression(expression);
-        Object result = jexlExpression.evaluate(jexlContext);
+        Object result;
+
+        try {
+            result = jexlExpression.evaluate(jexlContext);
+        } catch (JexlException e) {
+            throw new TestFilterEvaluationException();
+        }
 
         if (result instanceof Boolean) {
             return (boolean) result;

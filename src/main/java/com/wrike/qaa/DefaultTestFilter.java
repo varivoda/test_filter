@@ -7,7 +7,7 @@ import java.util.Map;
  */
 public class DefaultTestFilter implements ITestFilter {
 
-    public static final String TEST_FILTER_SET_REGEX = "\\{.*:([^}])*}";
+    public static final String TEST_FILTER_SET_REGEX = "\\{([^{])*:([^}])*}";
 
     protected String filter;
     protected BoolExpressionExecutor boolExpressionExecutor;
