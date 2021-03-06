@@ -38,7 +38,7 @@ class TestFilterExecutionConditionTest {
 
     @Test
     void e1Andf1Test() {
-        System.setProperty("test.filter", "lala{epic:e1}&{feature:f1}");
+        System.setProperty("test.filter", "{epic:e1}&{feature:f1}");
         ExecutionRecorder results = executeTestsForClass(DummyTests.class);
         Set<String> displayNames = results.getFinishedTestNames();
         assertEquals(1, displayNames.size(), "# finished tests " + displayNames);
