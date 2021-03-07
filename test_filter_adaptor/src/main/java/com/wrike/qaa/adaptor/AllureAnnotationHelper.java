@@ -24,20 +24,20 @@ public class AllureAnnotationHelper {
     public static final String STORY_KEY = "story";
 
     public static Set<String> getStoryAnnotationValues(Method method) {
-        Set<Story> typeSet = new HashSet<>(getAnnotations(method, method.getClass(), Story.class));
-        getAnnotations(method, method.getClass(), Stories.class).forEach(it -> typeSet.addAll(Arrays.asList(it.value())));
+        Set<Story> typeSet = new HashSet<>(getAnnotations(method, method.getDeclaringClass(), Story.class));
+        getAnnotations(method, method.getDeclaringClass(), Stories.class).forEach(it -> typeSet.addAll(Arrays.asList(it.value())));
         return typeSet.stream().map(Story::value).collect(Collectors.toSet());
     }
 
     public static Set<String> getFeatureAnnotationValues(Method method) {
-        Set<Feature> typeSet = new HashSet<>(getAnnotations(method, method.getClass(), Feature.class));
-        getAnnotations(method, method.getClass(), Features.class).forEach(it -> typeSet.addAll(Arrays.asList(it.value())));
+        Set<Feature> typeSet = new HashSet<>(getAnnotations(method, method.getDeclaringClass(), Feature.class));
+        getAnnotations(method, method.getDeclaringClass(), Features.class).forEach(it -> typeSet.addAll(Arrays.asList(it.value())));
         return typeSet.stream().map(Feature::value).collect(Collectors.toSet());
     }
 
     public static Set<String> getEpicAnnotationValues(Method method) {
-        Set<Epic> typeSet = new HashSet<>(getAnnotations(method, method.getClass(), Epic.class));
-        getAnnotations(method, method.getClass(), Epics.class).forEach(it -> typeSet.addAll(Arrays.asList(it.value())));
+        Set<Epic> typeSet = new HashSet<>(getAnnotations(method, method.getDeclaringClass(), Epic.class));
+        getAnnotations(method, method.getDeclaringClass(), Epics.class).forEach(it -> typeSet.addAll(Arrays.asList(it.value())));
         return typeSet.stream().map(Epic::value).collect(Collectors.toSet());
     }
 

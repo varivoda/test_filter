@@ -10,10 +10,12 @@ repositories {
 }
 
 dependencies {
+    implementation project(':junit5_adaptor')
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.7.1'
     testImplementation group: 'io.qameta.allure', name: 'allure-java-commons', version: '2.13.8'
 }
 
 test {
+    systemProperty 'test.filter', System.getProperty('test.filter')
     useJUnitPlatform()
 }
