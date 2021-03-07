@@ -2,4 +2,5 @@ rootProject.name = 'test_filter'
 include 'filter_calculator'
 include 'test_filter_adaptor'
 include 'junit5_adaptor'
+include 'tests_example'
 
