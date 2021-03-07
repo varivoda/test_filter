@@ -9,9 +9,12 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 
 import java.lang.reflect.Method;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static com.wrike.qaa.adaptor.AllureAnnotationHelper.*;
 
 /**
  * Created by Ivan Varivoda 19/05/2020
@@ -20,26 +23,26 @@ public class TestFilterExecutionCondition implements ExecutionCondition {
 
     private TestConfig testConfig = new TestConfig();
     private DefaultTestFilter defaultTestFilter = new DefaultTestFilter(testConfig.getTestFilter());
-    // TODO: 06/03/2021 DI??
 
     @Override
     public ConditionEvaluationResult evaluateExecutionCondition(ExtensionContext context) {
 
         Optional<Method> method = context.getTestMethod();
 
-        if (!context.getTestMethod().isPresent()) {
+        // in case context for method
+        if (method.isEmpty()) {
             return ConditionEvaluationResult.enabled("");
         }
 
-                // TODO: 06/03/2021 epic и прочее вынести в константу
-        Map<String, String> epicMap = AllureAnnotationHelper.getEpicAnnotationValues(method.get()).stream().collect(Collectors.toMap(o -> "epic", o -> o));
-        Map<String, String> featureMap = AllureAnnotationHelper.getFeatureAnnotationValues(method.get()).stream().collect(Collectors.toMap(o -> "feature", o -> o));
-        Map<String, String> storyMap = AllureAnnotationHelper.getStoryAnnotationValues(method.get()).stream().collect(Collectors.toMap(o -> "story", o -> o));
+        Map<String, String> epicMap = AllureAnnotationHelper.getEpicAnnotationValues(method.get()).stream().collect(Collectors.toMap(o -> EPIC_KEY, o -> o));
+        Map<String, String> featureMap = AllureAnnotationHelper.getFeatureAnnotationValues(method.get()).stream().collect(Collectors.toMap(o -> FEATURE_KEY, o -> o));
+        Map<String, String> storyMap = AllureAnnotationHelper.getStoryAnnotationValues(method.get()).stream().collect(Collectors.toMap(o -> STORY_KEY, o -> o));
 
-        // TODO: 06/03/2021 тут все проверит вдоль и поперек
-        Map<String, String> joinedMap = Stream.of(epicMap, featureMap, storyMap).flatMap(stringStringMap -> stringStringMap.entrySet().stream()).collect(Collectors.toMap(o -> o.getKey(), o -> o.getValue()));
+        Map<String, String> joinedMap = Stream.of(epicMap, featureMap, storyMap)
+                .flatMap(stringStringMap -> stringStringMap.entrySet().stream())
+                .collect(Collectors.toMap(Entry::getKey, Entry::getValue));
 
         return defaultTestFilter.match(joinedMap) ? ConditionEvaluationResult.enabled("") : ConditionEvaluationResult.disabled("");
-        }
+    }
 
 }

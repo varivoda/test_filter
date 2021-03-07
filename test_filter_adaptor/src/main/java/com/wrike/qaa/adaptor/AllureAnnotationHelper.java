@@ -19,6 +19,10 @@ import java.util.stream.Collectors;
  */
 public class AllureAnnotationHelper {
 
+    public static final String EPIC_KEY = "epic";
+    public static final String FEATURE_KEY = "feature";
+    public static final String STORY_KEY = "story";
+
     public static Set<String> getStoryAnnotationValues(Method method) {
         Set<Story> typeSet = new HashSet<>(getAnnotations(method, method.getClass(), Story.class));
         getAnnotations(method, method.getClass(), Stories.class).forEach(it -> typeSet.addAll(Arrays.asList(it.value())));

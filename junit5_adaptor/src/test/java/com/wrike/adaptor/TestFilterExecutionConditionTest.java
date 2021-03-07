@@ -2,9 +2,7 @@ package com.wrike.adaptor;
 
 import com.wrike.adaptor.tools.DummyTests;
 import com.wrike.adaptor.tools.ExecutionRecorder;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.Set;
 
@@ -22,18 +20,12 @@ class TestFilterExecutionConditionTest {
         ExecutionRecorder results = executeTestsForClass(DummyTests.class);
         Set<String> displayNames = results.getFinishedTestNames();
 
-        assertEquals(4, displayNames.size(), "# finished tests " + displayNames);
+        assertEquals(3, displayNames.size(), "# finished tests " + displayNames);
         assertAll("filtered tests",
                 () -> assertTrue(displayNames.contains("e1f1s1()")),
                 () -> assertTrue(displayNames.contains("e3f3s3()")),
-                () -> assertTrue(displayNames.contains("e1()")),
                 () -> assertTrue(displayNames.contains("e1()"))
         );
-    }
-
-    @BeforeEach
-    void setUp() throws IllegalAccessException {
-        System.setProperty("test.filter", "lala{epic:e1}&{feature:f1}");
     }
 
     @Test
