@@ -7,9 +7,11 @@ import org.junit.jupiter.api.extension.ExecutionCondition;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
 import java.lang.reflect.Method;
+import java.util.Map;
 import java.util.Optional;
 
 import static com.wrike.qaa.adaptor.AllureAnnotationHelper.getStandardAllureAnnotationValues;
+import static com.wrike.qaa.adaptor.CustomAnnotationsHelper.getCustomAnnotationValues;
 
 /**
  * Created by Ivan Varivoda 19/05/2020
@@ -26,6 +28,10 @@ public class TestFilterExecutionCondition implements ExecutionCondition {
         if (method.isEmpty()) {
             return ConditionEvaluationResult.enabled("");
         }
+
+        // TODO: 08/03/2021 тут закончил
+        Map<String, String> customAnnotationValues = getCustomAnnotationValues(method.get());
+
         return defaultTestFilter.match(getStandardAllureAnnotationValues(method.get())) ? ConditionEvaluationResult.enabled("") : ConditionEvaluationResult.disabled("");
     }
 

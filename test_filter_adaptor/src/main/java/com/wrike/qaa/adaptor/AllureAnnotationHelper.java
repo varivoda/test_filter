@@ -53,20 +53,6 @@ public class AllureAnnotationHelper {
         return Stream.of(epicMap, featureMap, storyMap).flatMap(stringStringMap -> stringStringMap.entrySet().stream()).collect(Collectors.toMap(Entry::getKey, Entry::getValue));
     }
 
-    // TODO: 06/03/2021 Add custom annotations handling
-//    public static Map<String, String> getCustomAnnotationValues(Method method) {
-//
-//        Set<Annotation> methodAnnotations = Arrays.stream(method.getAnnotations()).filter(annotation -> Arrays.stream(annotation.annotationType()
-//                .getAnnotations()).anyMatch(annotation1 -> annotation1.getClass().equals(FilterKey.class))).collect(Collectors.toSet());
-//
-//
-//        Set<Epic> typeSet = new HashSet<>(getAnnotations(method, method.getClass(), Epic.class));
-//        getAnnotations(method, method.getClass(), Epics.class).forEach(it -> typeSet.addAll(Arrays.asList(it.value())));
-//        return typeSet.stream().map(Epic::value).collect(Collectors.toSet());
-//
-//    }
-
-
     private static <T extends Annotation> Set<T> getAnnotations(Method method, Class<?> testClass, Class<T> annotationClass) {
         Set<T> annotationSet = new HashSet<>();
 
@@ -84,17 +70,5 @@ public class AllureAnnotationHelper {
 
         return annotationSet;
     }
-
-//    public static Set<String> getAllAnnotationValuesWithPrefixes(Method method, Class<?> testClass) {
-//        Set<String> res = new HashSet<>();
-//        res.addAll(getEpicAnnotationValues(method, testClass).stream().map(s ->  FilterPrefix.EPIC_PREFIX.getPrefixWithDelimiter() + s).collect(Collectors.toList()));
-//        res.addAll(getFeatureAnnotationValues(method, testClass).stream().map(s ->  FilterPrefix.FEATURE_PREFIX.getPrefixWithDelimiter() + s).collect(Collectors.toList()));
-//        res.addAll(getStoryAnnotationValues(method, testClass).stream().map(s ->  FilterPrefix.STORY_PREFIX.getPrefixWithDelimiter() + s).collect(Collectors.toList()));
-//        res.addAll(getTypeAnnotationValues(method, testClass).stream().map(s ->  FilterPrefix.TYPE_PREFIX.getPrefixWithDelimiter() + s).collect(Collectors.toList()));
-//        res.addAll(getHandlerAnnotationValues(method, testClass).stream().map(s ->  FilterPrefix.HANDLER_PREFIX.getPrefixWithDelimiter() + s).collect(Collectors.toList()));
-//        res.addAll(getServiceAnnotationValues(method, testClass).stream().map(s ->  FilterPrefix.SERVICE_PREFIX.getPrefixWithDelimiter() + s).collect(Collectors.toList()));
-//
-//        return res;
-//    }
 
 }
