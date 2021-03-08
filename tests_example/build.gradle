@@ -11,11 +11,15 @@ repositories {
 
 dependencies {
     implementation project(':junit5_adaptor')
+    implementation project(':testng_adaptor')
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.7.1'
     testImplementation group: 'io.qameta.allure', name: 'allure-java-commons', version: '2.13.8'
+    testImplementation group: 'org.testng', name: 'testng', version: '7.4.0'
 }
 
 test {
     systemProperty 'test.filter', System.getProperty('test.filter')
     useJUnitPlatform()
+    //uncomment to run testng tests
+//    useTestNG()
 }

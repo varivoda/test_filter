@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+group 'com.varivoda'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':test_filter_adaptor')
+    implementation project(':filter_calculator')
+    implementation group: 'org.testng', name: 'testng', version: '7.4.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+

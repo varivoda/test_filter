@@ -1,16 +1,16 @@
-package com.wrike.qaa;
+package com.wrike.qaa.testng;
 
-import com.wrike.adaptor.TestFilterExecutionCondition;
+import com.wrike.qaa.TestFilterListener;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 
 /**
  * Created by Ivan Varivoda 07/03/2021
  */
-@ExtendWith(TestFilterExecutionCondition.class)
+@Listeners(value = TestFilterListener.class)
 @Epic("Login")
 public class LoginTest {
 

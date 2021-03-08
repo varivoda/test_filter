@@ -11,8 +11,11 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Created by Ivan Varivoda 06/03/2021
@@ -39,6 +42,15 @@ public class AllureAnnotationHelper {
         Set<Epic> typeSet = new HashSet<>(getAnnotations(method, method.getDeclaringClass(), Epic.class));
         getAnnotations(method, method.getDeclaringClass(), Epics.class).forEach(it -> typeSet.addAll(Arrays.asList(it.value())));
         return typeSet.stream().map(Epic::value).collect(Collectors.toSet());
+    }
+
+    public static Map<String, String> getStandardAllureAnnotationValues(Method method) {
+
+        Map<String, String> epicMap = AllureAnnotationHelper.getEpicAnnotationValues(method).stream().collect(Collectors.toMap(o -> EPIC_KEY, o -> o));
+        Map<String, String> featureMap = AllureAnnotationHelper.getFeatureAnnotationValues(method).stream().collect(Collectors.toMap(o -> FEATURE_KEY, o -> o));
+        Map<String, String> storyMap = AllureAnnotationHelper.getStoryAnnotationValues(method).stream().collect(Collectors.toMap(o -> STORY_KEY, o -> o));
+
+        return Stream.of(epicMap, featureMap, storyMap).flatMap(stringStringMap -> stringStringMap.entrySet().stream()).collect(Collectors.toMap(Entry::getKey, Entry::getValue));
     }
 
     // TODO: 06/03/2021 Add custom annotations handling
