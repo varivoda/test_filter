@@ -4,4 +4,5 @@ include 'test_filter_adaptor'
 include 'junit5_adaptor'
 include 'tests_example'
 include 'testng_adaptor'
+include 'junit4_adaptor'
 

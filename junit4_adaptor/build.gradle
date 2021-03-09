@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+}
+
+group 'com.wrike'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'junit', name: 'junit', version: '4.13.2'
+    implementation group: 'com.googlecode.junit-toolbox', name: 'junit-toolbox', version: '2.4'
+}
