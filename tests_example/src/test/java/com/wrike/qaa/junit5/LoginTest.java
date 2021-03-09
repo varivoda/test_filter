@@ -1,4 +1,4 @@
-package com.wrike.qaa.junit;
+package com.wrike.qaa.junit5;
 
 import com.wrike.adaptor.TestFilterExecutionCondition;
 import io.qameta.allure.Epic;
