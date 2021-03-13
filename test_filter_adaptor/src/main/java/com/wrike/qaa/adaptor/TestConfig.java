@@ -5,17 +5,17 @@ package com.wrike.qaa.adaptor;
  */
 public class TestConfig {
 
-    private String testFilter;
+    private static final String testFilter;
 
-    public TestConfig() {
-        String testFilter = System.getProperty("test.filter");
-        if (testFilter == null || testFilter.isEmpty()) {
+    static {
+        String testFilterProp = System.getProperty("test.filter");
+        if (testFilterProp == null || testFilterProp.isEmpty()) {
             throw new IllegalStateException("Set test.filter system property");
         }
-        this.testFilter = testFilter;
+        testFilter = testFilterProp;
     }
 
-    public String getTestFilter() {
+    public static String getTestFilter() {
         return testFilter;
     }
 }

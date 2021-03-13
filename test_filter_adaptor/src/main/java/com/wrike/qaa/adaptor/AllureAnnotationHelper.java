@@ -17,6 +17,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static com.wrike.qaa.adaptor.CustomAnnotationsHelper.getCustomAnnotationValues;
+
 /**
  * Created by Ivan Varivoda 06/03/2021
  */
@@ -51,6 +53,12 @@ public class AllureAnnotationHelper {
         Map<String, String> storyMap = AllureAnnotationHelper.getStoryAnnotationValues(method).stream().collect(Collectors.toMap(o -> STORY_KEY, o -> o));
 
         return Stream.of(epicMap, featureMap, storyMap).flatMap(stringStringMap -> stringStringMap.entrySet().stream()).collect(Collectors.toMap(Entry::getKey, Entry::getValue));
+    }
+
+    public static Map<String, String> getAllTestCoordinates(Method method) {
+        return Stream.of(getCustomAnnotationValues(method), getStandardAllureAnnotationValues(method))
+                .flatMap(stringStringMap -> stringStringMap.entrySet().stream())
+                .collect(Collectors.toMap(Entry::getKey, Entry::getValue));
     }
 
     private static <T extends Annotation> Set<T> getAnnotations(Method method, Class<?> testClass, Class<T> annotationClass) {
