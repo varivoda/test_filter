@@ -8,7 +8,7 @@ import org.junit.runners.Suite.SuiteClasses;
  * Created by Ivan Varivoda 09/03/2021
  */
 //@RunWith(TestFilterRunner.class)
-public class TestFilterRunnerTest {
+public class TestFilterRunnerTestJunit4 {
 
     @Test
     public void test1() {

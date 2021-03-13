@@ -37,4 +37,12 @@ test {
 //    filter{
 //        includeTestsMatching "*RunFilteredTests"
 //    }
+
+    filter {
+        includeTestsMatching "StarButtonHeaderTest"
+        includeTestsMatching "*.checkTaskIsStaredViaButton"
+        includeTestsMatching "*HeaderTest"
+    }
+
+
 }

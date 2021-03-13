@@ -16,7 +16,7 @@ import static com.wrike.qaa.adaptor.AllureAnnotationHelper.getStandardAllureAnno
 public class TestFilterListener implements IInvokedMethodListener {
 
     private TestConfig testConfig = new TestConfig();
-    private DefaultTestFilter defaultTestFilter = new DefaultTestFilter(testConfig.getTestFilter());
+    private TestFilter defaultTestFilter = new TestFilter(testConfig.getTestFilter());
 
     @Override
     public void beforeInvocation(IInvokedMethod method, ITestResult testResult) {

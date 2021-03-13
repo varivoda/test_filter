@@ -16,10 +16,10 @@ import static com.wrike.qaa.adaptor.CustomAnnotationsHelper.getCustomAnnotationV
 /**
  * Created by Ivan Varivoda 09/03/2021
  */
-public class TestFilter extends Filter {
+public class TestFilterJunit4 extends Filter {
 
     private TestConfig testConfig = new TestConfig();
-    private DefaultTestFilter defaultTestFilter = new DefaultTestFilter(testConfig.getTestFilter());
+    private TestFilter defaultTestFilter = new TestFilter(testConfig.getTestFilter());
 
     @Override
     public boolean shouldRun(Description description) {

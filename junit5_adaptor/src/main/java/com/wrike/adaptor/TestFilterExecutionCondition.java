@@ -1,6 +1,6 @@
 package com.wrike.adaptor;
 
-import com.wrike.qaa.DefaultTestFilter;
+import com.wrike.qaa.TestFilter;
 import com.wrike.qaa.adaptor.TestConfig;
 import org.junit.jupiter.api.extension.ConditionEvaluationResult;
 import org.junit.jupiter.api.extension.ExecutionCondition;
@@ -19,7 +19,7 @@ import static com.wrike.qaa.adaptor.CustomAnnotationsHelper.getCustomAnnotationV
 public class TestFilterExecutionCondition implements ExecutionCondition {
 
     private TestConfig testConfig = new TestConfig();
-    private DefaultTestFilter defaultTestFilter = new DefaultTestFilter(testConfig.getTestFilter());
+    private TestFilter defaultTestFilter = new TestFilter(testConfig.getTestFilter());
 
     @Override
     public ConditionEvaluationResult evaluateExecutionCondition(ExtensionContext context) {
