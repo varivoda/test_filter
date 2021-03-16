@@ -7,27 +7,33 @@ import org.testng.ITestResult;
 import org.testng.SkipException;
 
 import java.lang.reflect.Method;
+import java.util.Map;
 
-import static com.wrike.qaa.adaptor.AllureAnnotationHelper.getStandardAllureAnnotationValues;
+import static com.wrike.qaa.adaptor.AllureAnnotationHelper.getAllTestCoordinates;
 
 /**
  * Created by Ivan Varivoda 08/03/2021
  */
 public class TestFilterListener implements IInvokedMethodListener {
 
-    private TestConfig testConfig = new TestConfig();
-    private TestFilter defaultTestFilter = new TestFilter(testConfig.getTestFilter());
+    private final TestFilter defaultTestFilter = new TestFilter(TestConfig.getTestFilter());
 
     @Override
     public void beforeInvocation(IInvokedMethod method, ITestResult testResult) {
-        Method javaMethod = method.getTestMethod().getConstructorOrMethod().getMethod();
 
+        Method javaMethod = getMethodFromInvokedMethod(method);
         if (javaMethod == null) {
             return;
         }
 
-        if (!defaultTestFilter.match(getStandardAllureAnnotationValues(javaMethod))) {
+        Map<String, String> testCoords = getAllTestCoordinates(javaMethod);
+
+        if (!defaultTestFilter.match(testCoords)) {
             throw new SkipException("This test doesn't fit by filter");
         }
+    }
+
+    private Method getMethodFromInvokedMethod(IInvokedMethod method) {
+        return method.getTestMethod().getConstructorOrMethod().getMethod();
     }
 }

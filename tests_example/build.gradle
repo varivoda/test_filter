@@ -30,7 +30,11 @@ test {
     // Testng tests
     //uncomment to run testng tests
 //    useTestNG()
-
+//
+//    options {
+//        listeners.add("com.wrike.qaa.TestFilterListener")
+//    }
+//
     //Junit 4 tests
     //uncomment to run junit4 tests
 //    useJUnit();
