@@ -23,6 +23,7 @@ dependencies {
 
 test {
     systemProperty 'test.filter', System.getProperty('test.filter')
+    systemProperty 'junit.jupiter.extensions.autodetection.enabled', true
 
     // Junit 5 tests
     useJUnitPlatform()

@@ -10,7 +10,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 /**
  * Created by Ivan Varivoda 07/03/2021
  */
-@ExtendWith(TestFilterExecutionCondition.class)
+//@ExtendWith(TestFilterExecutionCondition.class)
 @Epic("Login")
 public class LoginTest {
 
