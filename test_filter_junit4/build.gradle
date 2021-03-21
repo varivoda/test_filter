@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'com.wrike'
+group 'com.wrike.qaa'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -11,7 +11,7 @@ repositories {
 
 dependencies {
     implementation project(':test_filter_adaptor')
-    implementation project(':filter_calculator')
+    implementation project(':test_filter_calculator')
     implementation group: 'junit', name: 'junit', version: '4.13.2'
     implementation group: 'com.googlecode.junit-toolbox', name: 'junit-toolbox', version: '2.4'
 }

@@ -1,8 +1,8 @@
 rootProject.name = 'test_filter'
-include 'filter_calculator'
+include 'test_filter_calculator'
 include 'test_filter_adaptor'
-include 'junit5_adaptor'
+include 'test_filter_junit5'
 include 'tests_example'
-include 'testng_adaptor'
-include 'junit4_adaptor'
+include 'test_filter_testng'
+include 'test_filter_junit4'
 

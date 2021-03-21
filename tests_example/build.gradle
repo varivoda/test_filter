@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'com.varivoda'
+group 'com.wrike.qaa'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -10,9 +10,9 @@ repositories {
 }
 
 dependencies {
-    implementation project(':junit5_adaptor')
-    implementation project(':junit4_adaptor')
-    implementation project(':testng_adaptor')
+    implementation project(':test_filter_junit5')
+    implementation project(':test_filter_junit4')
+    implementation project(':test_filter_testng')
     implementation project(':test_filter_adaptor')
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.7.1'
     testImplementation group: 'io.qameta.allure', name: 'allure-java-commons', version: '2.13.8'

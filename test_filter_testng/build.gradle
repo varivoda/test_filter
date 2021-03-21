@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'com.varivoda'
+group 'com.wrike.qaa'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -11,7 +11,7 @@ repositories {
 
 dependencies {
     implementation project(':test_filter_adaptor')
-    implementation project(':filter_calculator')
+    implementation project(':test_filter_calculator')
     implementation group: 'org.testng', name: 'testng', version: '7.4.0'
 }
 
