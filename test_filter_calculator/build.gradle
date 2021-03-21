@@ -1,12 +1,18 @@
 plugins {
     id 'java'
+    id 'maven'
 }
 
 group 'com.wrike.qaa'
-version '1.0-SNAPSHOT'
+version '1.0'
 
 repositories {
     mavenCentral()
+}
+
+compileJava {
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
 }
 
 dependencies {
