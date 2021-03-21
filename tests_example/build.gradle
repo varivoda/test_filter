@@ -11,15 +11,19 @@ repositories {
 }
 
 dependencies {
+
+//    test frameworks
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.7.1'
-    testImplementation group: 'com.wrike.qaa', name: 'test_filter_junit5', version: '1.0'
-    testImplementation group: 'com.wrike.qaa', name: 'test_filter_junit4', version: '1.0'
-    testImplementation group: 'com.wrike.qaa', name: 'test_filter_testng', version: '1.0'
-    implementation group: 'com.wrike.qaa', name: 'test_filter_adaptor', version: '1.0'
     testImplementation group: 'io.qameta.allure', name: 'allure-java-commons', version: '2.13.8'
     testImplementation group: 'junit', name: 'junit', version: '4.13.2'
     testImplementation group: 'com.googlecode.junit-toolbox', name: 'junit-toolbox', version: '2.4'
     testImplementation group: 'org.testng', name: 'testng', version: '7.4.0'
+
+    // test filter
+    testImplementation group: 'com.wrike.qaa', name: 'test_filter_junit5', version: '1.0'
+    testImplementation group: 'com.wrike.qaa', name: 'test_filter_junit4', version: '1.0'
+    testImplementation group: 'com.wrike.qaa', name: 'test_filter_testng', version: '1.0'
+    implementation group: 'com.wrike.qaa', name: 'test_filter_adaptor', version: '1.0'
 }
 
 test {
