@@ -1,16 +1,13 @@
 package com.wrike.qaa.testng;
 
-import com.wrike.qaa.TestFilterListener;
+import com.wrike.qaa.Type;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 /**
  * Created by Ivan Varivoda 07/03/2021
  */
-@Listeners(value = TestFilterListener.class)
 @Epic("Login")
 public class LoginTest {
 
@@ -27,7 +24,7 @@ public class LoginTest {
     }
 
     @Test
-    @Story("Login screenshot")
+    @Type("Screenshot")
     void loginScreenshotTest() {
         throw new AssertionError();
     }

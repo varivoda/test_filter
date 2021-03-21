@@ -1,16 +1,13 @@
 package com.wrike.qaa.junit5;
 
-import com.wrike.adaptor.TestFilterExecutionCondition;
+import com.wrike.qaa.Type;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 
 /**
  * Created by Ivan Varivoda 07/03/2021
  */
-//@ExtendWith(TestFilterExecutionCondition.class)
 @Epic("Login")
 public class LoginTest {
 
@@ -27,7 +24,7 @@ public class LoginTest {
     }
 
     @Test
-    @Story("Login screenshot")
+    @Type("Screenshot")
     void loginScreenshotTest() {
         throw new AssertionError();
     }

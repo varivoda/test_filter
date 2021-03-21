@@ -23,6 +23,11 @@ dependencies {
 }
 
 test {
+
+    testLogging {
+        events "PASSED", "SKIPPED", "FAILED", "STANDARD_OUT", "STANDARD_ERROR"
+    }
+
     systemProperty 'test.filter', System.getProperty('test.filter')
     systemProperty 'junit.jupiter.extensions.autodetection.enabled', true
 

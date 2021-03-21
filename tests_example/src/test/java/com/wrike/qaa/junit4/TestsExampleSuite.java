@@ -5,10 +5,9 @@ import com.wrike.qaa.TestFilterSuite;
 import org.junit.runner.RunWith;
 
 /**
- * Created by Ivan Varivoda 09/03/2021
+ * Created by Ivan Varivoda 21/03/2021
  */
-@SuiteClasses({"**/*.class",
-        "!**/RunFilteredTests.class"})
+@SuiteClasses({"**/*.class", "!**/TestsExampleSuite.class"})
 @RunWith(TestFilterSuite.class)
-public class RunFilteredTests {
+public class TestsExampleSuite {
 }

@@ -3,7 +3,6 @@ package com.wrike.qaa.junit4;
 import com.wrike.qaa.Type;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
 import org.junit.Test;
 
 /**
@@ -25,8 +24,7 @@ public class LoginTest {
     }
 
     @Test
-    @Story("Login screenshot")
-    @Type("lala")
+    @Type("Screenshot")
     public void loginScreenshotTest() {
         throw new AssertionError();
     }
