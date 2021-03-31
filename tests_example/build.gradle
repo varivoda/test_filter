@@ -32,25 +32,30 @@ test {
         events "PASSED", "SKIPPED", "FAILED", "STANDARD_OUT", "STANDARD_ERROR"
     }
 
+    // Get test filter from system property
     systemProperty 'test.filter', System.getProperty('test.filter')
-    systemProperty 'junit.jupiter.extensions.autodetection.enabled', true
 
-    // Junit 5 tests
+    // Settings for Junit 5 test framework
+
     useJUnitPlatform()
+    // Allow not to add @ExtendWith(TestFilterExecutionCondition.class) under each test class
+//    systemProperty 'junit.jupiter.extensions.autodetection.enabled', true
 
-    // Testng tests
-    //uncomment to run testng tests
+    // Settings for Testng test framework. Uncomment to check it for TestNg tests
+
 //    useTestNG()
-//
+// Allow not to add @Listeners(TestFilterListener.class) under each test class
 //    options {
 //        listeners.add("com.wrike.qaa.TestFilterListener")
 //    }
-//
-    //Junit 4 tests
-    //uncomment to run junit4 tests
+
+    //Settings for Testng test framework. Uncomment to check it for Junit 4 tests
+
 //    useJUnit();
+
+    // Gradle filter to run only TestsExampleSuite.class suite for test filtering
 //    filter{
-//        includeTestsMatching "*RunFilteredTests"
+//        includeTestsMatching "*TestSuite"
 //    }
 
 }
