@@ -34,7 +34,6 @@ public class TestFilterJunit4 extends Filter {
         try {
             return description.getTestClass().getMethod(description.getMethodName());
         } catch (NoSuchMethodException e) {
-            // TODO: 09/03/2021 подумать как лучше сделать
             throw new IllegalStateException();
         }
     }

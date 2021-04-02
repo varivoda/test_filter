@@ -15,20 +15,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class TestFilterExecutionConditionTest {
 
     @Test
-    void e1Ore3Test() {
-        System.setProperty("test.filter", "{epic:e1}|{epic:e3}");
-        ExecutionRecorder results = executeTestsForClass(DummyTests.class);
-        Set<String> displayNames = results.getFinishedTestNames();
-
-        assertEquals(3, displayNames.size(), "# finished tests " + displayNames);
-        assertAll("filtered tests",
-                () -> assertTrue(displayNames.contains("e1f1s1()")),
-                () -> assertTrue(displayNames.contains("e3f3s3()")),
-                () -> assertTrue(displayNames.contains("e1()"))
-        );
-    }
-
-    @Test
     void e1Andf1Test() {
         System.setProperty("test.filter", "{epic:e1}&{feature:f1}");
         ExecutionRecorder results = executeTestsForClass(DummyTests.class);

@@ -1,6 +1,7 @@
 package com.wrike.qaa;
 
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * Created by Ivan Varivoda 06/03/2021
@@ -9,8 +10,8 @@ public class TestFilter {
 
     public static final String TEST_FILTER_SET_REGEX = "\\{([^{])*:([^}])*}";
 
-    protected String filter;
-    protected BoolExpressionExecutor boolExpressionExecutor;
+    private final String filter;
+    private final BoolExpressionExecutor boolExpressionExecutor;
 
     public TestFilter(String filter) {
         this.filter = filter;
@@ -28,13 +29,13 @@ public class TestFilter {
     }
 
     public boolean match(Map<String, String> testCoords) {
-        final String[] modifiedFilter = {filter};
-        testCoords.forEach((key, value) -> modifiedFilter[0] = modifiedFilter[0].replaceAll("\\{" + key + ":" + value + "}", "true"));
+        AtomicReference<String> modifiedFilter = new AtomicReference<>(filter);
+        testCoords.forEach((key, value) -> modifiedFilter.set(modifiedFilter.get().replaceAll("\\{" + key + ":" + value + "}", "true")));
 
-        modifiedFilter[0] = modifiedFilter[0].replaceAll(TEST_FILTER_SET_REGEX, "false");
+        modifiedFilter.set(modifiedFilter.get().replaceAll(TEST_FILTER_SET_REGEX, "false"));
 
         try {
-            return boolExpressionExecutor.eval(modifiedFilter[0]);
+            return boolExpressionExecutor.eval(modifiedFilter.get());
         } catch (TestFilterEvaluationException e) {
             throw new IllegalStateException(String.format("Test filter {%s} is wrong", filter));
         }

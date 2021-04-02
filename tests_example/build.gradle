@@ -19,11 +19,15 @@ dependencies {
     testImplementation group: 'com.googlecode.junit-toolbox', name: 'junit-toolbox', version: '2.4'
     testImplementation group: 'org.testng', name: 'testng', version: '7.4.0'
 
+    implementation project(':test_filter_junit5')
+    implementation project(':test_filter_junit4')
+    implementation project(':test_filter_testng')
+    implementation project(':test_filter_adaptor')
     // test filter
-    testImplementation group: 'com.wrike.qaa', name: 'test_filter_junit5', version: '1.0'
-    testImplementation group: 'com.wrike.qaa', name: 'test_filter_junit4', version: '1.0'
-    testImplementation group: 'com.wrike.qaa', name: 'test_filter_testng', version: '1.0'
-    implementation group: 'com.wrike.qaa', name: 'test_filter_adaptor', version: '1.0'
+//    testImplementation group: 'com.wrike.qaa', name: 'test_filter_junit5', version: '1.0'
+//    testImplementation group: 'com.wrike.qaa', name: 'test_filter_junit4', version: '1.0'
+//    testImplementation group: 'com.wrike.qaa', name: 'test_filter_testng', version: '1.0'
+//    implementation group: 'com.wrike.qaa', name: 'test_filter_adaptor', version: '1.0'
 }
 
 test {
@@ -55,7 +59,7 @@ test {
 
     // Gradle filter to run only TestsExampleSuite.class suite for test filtering
 //    filter{
-//        includeTestsMatching "*TestSuite"
+//        includeTestsMatching "*TestsExampleSuite"
 //    }
 
 }

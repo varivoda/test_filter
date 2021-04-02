@@ -48,11 +48,13 @@ public class AllureAnnotationHelper {
 
     public static Map<String, String> getStandardAllureAnnotationValues(Method method) {
 
-        Map<String, String> epicMap = AllureAnnotationHelper.getEpicAnnotationValues(method).stream().collect(Collectors.toMap(o -> EPIC_KEY, o -> o));
-        Map<String, String> featureMap = AllureAnnotationHelper.getFeatureAnnotationValues(method).stream().collect(Collectors.toMap(o -> FEATURE_KEY, o -> o));
-        Map<String, String> storyMap = AllureAnnotationHelper.getStoryAnnotationValues(method).stream().collect(Collectors.toMap(o -> STORY_KEY, o -> o));
+        Map<String, String> epicMap = getEpicAnnotationValues(method).stream().collect(Collectors.toMap(o -> EPIC_KEY, o -> o));
+        Map<String, String> featureMap = getFeatureAnnotationValues(method).stream().collect(Collectors.toMap(o -> FEATURE_KEY, o -> o));
+        Map<String, String> storyMap = getStoryAnnotationValues(method).stream().collect(Collectors.toMap(o -> STORY_KEY, o -> o));
 
-        return Stream.of(epicMap, featureMap, storyMap).flatMap(stringStringMap -> stringStringMap.entrySet().stream()).collect(Collectors.toMap(Entry::getKey, Entry::getValue));
+        return Stream.of(epicMap, featureMap, storyMap)
+                .flatMap(stringStringMap -> stringStringMap.entrySet().stream())
+                .collect(Collectors.toMap(Entry::getKey, Entry::getValue));
     }
 
     public static Map<String, String> getAllTestCoordinates(Method method) {
