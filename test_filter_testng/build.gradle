@@ -2,7 +2,7 @@ plugins {
     id 'java'
     id 'maven-publish'
 }
-group 'com.wrike.qaa'
+group 'com.github.varivoda'
 version '1.0'
 
 repositories {
@@ -15,8 +15,8 @@ compileJava {
 }
 
 dependencies {
-    implementation project(':test_filter_adaptor')
-    implementation project(':test_filter_calculator')
+    implementation 'com.github.varivoda:test_filter_calculator:1.0'
+    implementation 'com.github.varivoda:test_filter_adaptor:1.0'
     implementation group: 'org.testng', name: 'testng', version: '7.4.0'
 }
 

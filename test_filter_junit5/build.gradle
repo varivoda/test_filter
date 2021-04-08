@@ -3,7 +3,7 @@ plugins {
     id 'maven-publish'
 }
 
-group 'com.wrike.qaa'
+group 'com.github.varivoda'
 version '1.0'
 
 repositories {
@@ -16,8 +16,8 @@ compileJava {
 }
 
 dependencies {
-    implementation project(':test_filter_adaptor')
-    implementation project(':test_filter_calculator')
+    implementation 'com.github.varivoda:test_filter_calculator:1.0'
+    implementation 'com.github.varivoda:test_filter_adaptor:1.0'
     implementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.7.1'
     implementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.7.1'
     testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.7.1'
