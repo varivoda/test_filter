@@ -7,7 +7,6 @@ version '1.0'
 
 repositories {
     mavenCentral()
-    mavenLocal()
 }
 
 dependencies {
@@ -20,7 +19,6 @@ dependencies {
     testImplementation group: 'org.testng', name: 'testng', version: '7.4.0'
 
     // test filter
-    implementation 'com.github.varivoda:test_filter_calculator:1.0'
     implementation 'com.github.varivoda:test_filter_adaptor:1.0'
     implementation 'com.github.varivoda:test_filter_junit5:1.0'
     implementation 'com.github.varivoda:test_filter_junit4:1.0'

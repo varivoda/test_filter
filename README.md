@@ -34,14 +34,17 @@ Test filter example:
 # test_filter project structure 
 
 test_filter_calculator - Util for calculation of test filter
-test_filter_adaptor - код для написания своих аннотаций разметки и вычисления тестовых координат
+test_filter_adaptor - tools for creating new annotations for markup
 
 
-test_filter_junit4 - адаптор для тестов на Junit 4 
-test_filter_junit5 - адаптор для тестов на Junit 5
-test_filter_testng - адаптор для тестов на TestNG
+test_filter_junit4 - adaptor for Junit 4 test framework 
+test_filter_junit5 - adaptor for Junit 5 test framework
+test_filter_testng - adaptor for TestNG test framework
 
-tests_example - модуль с примерами тестов.
+# How to use
 
-# Подключение в проект
+Here is configuration for gradle tests_example
+
+
+
 
